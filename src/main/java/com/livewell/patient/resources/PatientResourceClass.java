@@ -20,16 +20,18 @@ public class PatientResourceClass {
     public PatientResourceClass(PatientRepo patientRepository) {
         this.patientRepository = patientRepository;
          List<Patient> patients= new ArrayList<>();
-         patients.add(new Patient("Zohra","Shaik"));
-         patients.add(new Patient("Mohammed","Khan"));
-         patients.add(new Patient("King","Kong"));
+         patients.add(new Patient("Zohra","Shaik", "Practitioner2"));
+         patients.add(new Patient("Mohammed","Khan", "Practitioner2"));
+         patients.add(new Patient("King","Kong", "Practitioner1"));
+         patients.add(new Patient("Ronaldo", "Rest", "Practitioner2"));
+         patients.add(new Patient("Count","Dracula","Practitioner1"));
          patientRepository.saveAll(patients);
     }
 
     @RequestMapping("/{practitionerId}")
     public @ResponseBody Iterable<Patient> getPatientsForPractitioner(@PathVariable("practitionerId") String practitionerId) {
 
-       return patientRepository.findAll();
+       return patientRepository.findPatientsByPractitionerId(practitionerId);
     }
 
-    }
+}

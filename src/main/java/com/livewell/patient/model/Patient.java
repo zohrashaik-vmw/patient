@@ -9,13 +9,23 @@ public class Patient {
     private int id;
     private String firstName;
     private String lastName;
+    private String practitionerId;
 
-    protected Patient() {}
+    public String getPractitionerId() {
+        return practitionerId;
+    }
 
-    public Patient(String firstName, String lastName) {
+    public void setPractitionerId(String practitionerId) {
+        this.practitionerId = practitionerId;
+    }
+
+    public Patient(String firstName, String lastName, String practitionerId) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.practitionerId = practitionerId;
     }
+
+    protected Patient() {}
 
     @Override
     public String toString() {
