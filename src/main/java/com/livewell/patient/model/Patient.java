@@ -7,45 +7,29 @@ public class Patient {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    private String lastName;
-    private String practitionerId;
+    private String name;
 
-    public String getPractitionerId() {
-        return practitionerId;
-    }
-
-    public void setPractitionerId(String practitionerId) {
-        this.practitionerId = practitionerId;
-    }
-
-    public Patient(String firstName, String lastName, String practitionerId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.practitionerId = practitionerId;
-    }
-
-    protected Patient() {}
-
-    @Override
-    public String toString() {
-        return "Patient{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+    public Patient() {
     }
 
     public int getId() {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Patient( String name) {
+        this.name = name;
     }
 }
 

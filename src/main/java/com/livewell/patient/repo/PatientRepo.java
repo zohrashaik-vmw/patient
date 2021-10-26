@@ -8,6 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 // CRUD refers Create, Read, Update, Delete
 
 public interface PatientRepo extends CrudRepository<Patient, Integer> {
-    Iterable<Patient> findPatientsByPractitionerId(String practitionerId);
+    Patient findByName(String name);
 }
 

@@ -3,10 +3,7 @@ package com.livewell.patient.resources;
 import com.livewell.patient.model.Patient;
 import com.livewell.patient.repo.PatientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,18 +17,29 @@ public class PatientResourceClass {
     public PatientResourceClass(PatientRepo patientRepository) {
         this.patientRepository = patientRepository;
          List<Patient> patients= new ArrayList<>();
-         patients.add(new Patient("Zohra","Shaik", "Practitioner2"));
-         patients.add(new Patient("Mohammed","Khan", "Practitioner2"));
-         patients.add(new Patient("King","Kong", "Practitioner1"));
-         patients.add(new Patient("Ronaldo", "Rest", "Practitioner2"));
-         patients.add(new Patient("Count","Dracula","Practitioner1"));
+         patients.add(new Patient("Zohra Shaik"));
+         patients.add(new Patient("Mohammed Khan"));
+         patients.add(new Patient("King Kong"));
+         patients.add(new Patient("Ronald Reagan"));
+         patients.add(new Patient("Count Dracula"));
          patientRepository.saveAll(patients);
     }
 
-    @RequestMapping("/{practitionerId}")
-    public @ResponseBody Iterable<Patient> getPatientsForPractitioner(@PathVariable("practitionerId") String practitionerId) {
+    @RequestMapping ("/list")
+    public Iterable<Patient> getPatients()
+    {
+        return patientRepository.findAll();
+    }
 
-       return patientRepository.findPatientsByPractitionerId(practitionerId);
+    @RequestMapping("/getPatientIdByName")
+    public @ResponseBody int getPatientId(@RequestParam(name = "name") String name)
+    {
+       Patient patient = patientRepository.findByName(name);
+       if (patient != null){
+           return patient.getId();
+       }
+
+       return 0;
     }
 
 }
