@@ -17,13 +17,11 @@ public class PatientResourceClass {
     public PatientResourceClass(PatientRepo patientRepository) {
         this.patientRepository = patientRepository;
          List<Patient> patients= new ArrayList<>();
-         patients.add(new Patient("Zohra Shaik"));
+         patients.add(new Patient("Deen Jane"));
          patients.add(new Patient("Mohammed Khan"));
          patients.add(new Patient("King Kong"));
          patients.add(new Patient("Ronald Reagan"));
          patients.add(new Patient("Count Dracula"));
-         patients.add(new Patient("Jerry Seinfield"));
-         patients.add(new Patient( "Kapil Dev"));
          patientRepository.saveAll(patients);
     }
 
