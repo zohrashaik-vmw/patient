@@ -22,6 +22,7 @@ public class PatientResourceClass {
          patients.add(new Patient("King Kong"));
          patients.add(new Patient("Ronald Reagan"));
          patients.add(new Patient("Count Dracula"));
+         patients.add(new Patient("Jerry Seinfield"));
          patientRepository.saveAll(patients);
     }
 
