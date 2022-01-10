@@ -22,7 +22,8 @@ public class PatientResourceClass {
          patients.add(new Patient("King Kong"));
          patients.add(new Patient("Ronald Reagan"));
          patients.add(new Patient("Count Dracula"));
-          patientRepository.saveAll(patients);
+        patients.add(new Patient("Lets See"));
+         patientRepository.saveAll(patients);
     }
 
     @RequestMapping ("/list")
