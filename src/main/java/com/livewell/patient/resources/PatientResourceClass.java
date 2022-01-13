@@ -20,7 +20,6 @@ public class PatientResourceClass {
          patients.add(new Patient("Deen Jane"));
          patients.add(new Patient("Mohammed Khan"));
          patients.add(new Patient("King Kong"));
-         patients.add(new Patient("Ronald Reagan"));
          patients.add(new Patient("Count Dracula"));
            patientRepository.saveAll(patients);
     }
